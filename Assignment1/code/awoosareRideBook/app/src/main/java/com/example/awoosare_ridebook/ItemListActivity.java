@@ -135,7 +135,7 @@ public class ItemListActivity extends AppCompatActivity {
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
+                mIdView = (TextView) view.findViewById(R.id.id_time);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
         }
