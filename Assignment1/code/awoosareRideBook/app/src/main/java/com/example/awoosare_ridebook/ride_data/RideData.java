@@ -125,6 +125,12 @@ public class RideData {
             this.comment = comment.substring(0,20);
         }
 
+        @Override
+        public String toString(){
+            return String.format(
+                    "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
+                    this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment())
+        }
     }
 }
 
