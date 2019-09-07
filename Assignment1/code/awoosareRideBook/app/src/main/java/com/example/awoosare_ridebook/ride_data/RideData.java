@@ -1,4 +1,4 @@
-package com.example.awoosare_ridebook.dummy;
+package com.example.awoosare_ridebook.ride_data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class RideData {
 
     /**
      * An array of sample (dummy) items.
