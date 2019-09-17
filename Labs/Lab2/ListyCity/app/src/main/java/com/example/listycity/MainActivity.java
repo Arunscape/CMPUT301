@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ListView cityList;
     ArrayAdapter<String> cityAdapter;
     ArrayList<String> dataList;
-    LinearLayout textEdit ;
+    LinearLayout textEdit;
     EditText textBox;
 
     int selectedCity;
@@ -44,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3) {
                 selectedCity = position;
+                showDeleteButton();
             }
         });
 
     }
 
-    public void showTextEdit(View v){
+    public void showTextEdit(View v) {
         textEdit = findViewById(R.id.textEditView);
         textEdit.setVisibility(View.VISIBLE);
 
@@ -59,24 +60,24 @@ public class MainActivity extends AppCompatActivity {
         showKeyboard();
     }
 
-    protected void hideTextEdit(){
-        textEdit =  findViewById(R.id.textEditView);
+    protected void hideTextEdit() {
+        textEdit = findViewById(R.id.textEditView);
         textEdit.setVisibility(View.GONE);
         textBox.setText("");
     }
 
-    private void showKeyboard(){
+    private void showKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
         imm.showSoftInput(textBox, InputMethodManager.SHOW_IMPLICIT);
     }
 
-    private void hideKeyboard(){
+    private void hideKeyboard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
         View view = this.getCurrentFocus();
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public void confirmAdd(View v){
+    public void confirmAdd(View v) {
         textBox = findViewById(R.id.textbox);
         String city = textBox.getText().toString();
         dataList.add(city);
@@ -84,20 +85,33 @@ public class MainActivity extends AppCompatActivity {
         hideKeyboard();
         hideTextEdit();
 
-        if (dataList.size() > 0){
-            Button deleteButton = findViewById(R.id.delete_button);
-            deleteButton.setVisibility(View.VISIBLE);
+        if (dataList.size() > 0) {
+            showDeleteButton();
         }
     }
 
-    public void deleteCity(View v){
+    public void deleteCity(View v) {
 
         this.dataList.remove(selectedCity);
         cityAdapter.notifyDataSetChanged();
 
-        if (dataList.size() < 1){
-            Button deleteButton = findViewById(R.id.delete_button);
-            deleteButton.setVisibility(View.GONE);
+        if (dataList.size() < 1) {
+            hideDeleteButton();
         }
+
+        cityList.setAdapter(cityAdapter);
+        hideDeleteButton();
+
+
+    }
+
+    private void hideDeleteButton() {
+        Button deleteButton = findViewById(R.id.delete_button);
+        deleteButton.setVisibility(View.GONE);
+    }
+
+    private void showDeleteButton() {
+        Button deleteButton = findViewById(R.id.delete_button);
+        deleteButton.setVisibility(View.VISIBLE);
     }
 }
