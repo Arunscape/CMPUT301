@@ -3,7 +3,9 @@ package com.example.listycity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,24 +23,29 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout textEdit ;
     EditText textBox;
 
-    String selectedCity = "Edmonton";
-
+    int selectedCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         cityList = findViewById(R.id.city_list);
-
         String[] cities = {"Edmonton", "Calgary", "Ottawa", "Winnipeg", "Victoria", "Montreal", "Toronto", "St. John's", "Charlottetown", "Halifax"};
-
         dataList = new ArrayList<>();
-
         dataList.addAll(Arrays.asList(cities));
-
         cityAdapter = new ArrayAdapter<>(this, R.layout.content, R.id.content_view, dataList);
-
         cityList.setAdapter(cityAdapter);
+        cityList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        selectedCity = 0;
+
+        cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position,
+                                    long arg3) {
+                selectedCity = position;
+            }
+        });
 
     }
 
@@ -52,27 +59,15 @@ public class MainActivity extends AppCompatActivity {
         showKeyboard();
     }
 
-    private void showKeyboard(){
-        InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
-        imm.showSoftInput(textBox, InputMethodManager.SHOW_IMPLICIT);
-    }
-
     protected void hideTextEdit(){
         textEdit =  findViewById(R.id.textEditView);
         textEdit.setVisibility(View.GONE);
+        textBox.setText("");
     }
 
-    public void confirmAdd(View v){
-        textBox = findViewById(R.id.textbox);
-
-        String city = textBox.getText().toString();
-        dataList.add(city);
-
-
-        hideKeyboard();
-
-        hideTextEdit();
-
+    private void showKeyboard(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+        imm.showSoftInput(textBox, InputMethodManager.SHOW_IMPLICIT);
     }
 
     private void hideKeyboard(){
@@ -81,5 +76,28 @@ public class MainActivity extends AppCompatActivity {
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    public void confirmAdd(View v){
+        textBox = findViewById(R.id.textbox);
+        String city = textBox.getText().toString();
+        dataList.add(city);
 
+        hideKeyboard();
+        hideTextEdit();
+
+        if (dataList.size() > 0){
+            Button deleteButton = findViewById(R.id.delete_button);
+            deleteButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void deleteCity(View v){
+
+        this.dataList.remove(selectedCity);
+        cityAdapter.notifyDataSetChanged();
+
+        if (dataList.size() < 1){
+            Button deleteButton = findViewById(R.id.delete_button);
+            deleteButton.setVisibility(View.GONE);
+        }
+    }
 }
