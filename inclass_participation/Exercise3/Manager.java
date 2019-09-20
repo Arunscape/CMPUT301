@@ -4,9 +4,9 @@ import java.util.ArrayList;
               
           private ArrayList<Employee> employees;
               
-          Manager(String name, ArrayList<Employee> employees){
+          Manager(String name){
                   super(name);
-                  this.employees = employees;
+                  this.employees = new ArrayList<Employee>();
           }
   
   
