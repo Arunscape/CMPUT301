@@ -18,12 +18,12 @@
 //    /**
 //     * An array of sample (dummy) items.
 //     */
-//    public static final List<Ride> ITEMS = new ArrayList<Ride>();
+//    public static final List<GlobalState> ITEMS = new ArrayList<GlobalState>();
 //
 //    /**
 //     * A map of sample (dummy) items, by ID.
 //     */
-//    public static final Map<String, Ride> ITEM_MAP = new HashMap<String, Ride>();
+//    public static final Map<String, GlobalState> ITEM_MAP = new HashMap<String, GlobalState>();
 //
 //    private static final int COUNT = 25;
 //
@@ -34,13 +34,13 @@
 //        }
 //    }
 //
-//    private static void addItem(Ride item) {
+//    private static void addItem(GlobalState item) {
 //        ITEMS.add(item);
 //        ITEM_MAP.put(item.id, item);
 //    }
 //
-//    private static Ride createDummyItem(int position) {
-//        return new Ride(String.valueOf(position), "Item " + position, makeDetails(position));
+//    private static GlobalState createDummyItem(int position) {
+//        return new GlobalState(String.valueOf(position), "Item " + position, makeDetails(position));
 //    }
 //
 //    private static String makeDetails(int position) {
@@ -52,7 +52,7 @@
 //        return builder.toString();
 //    }
 //
-//    public static class Ride {
+//    public static class GlobalState {
 //
 //        private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 //
@@ -63,7 +63,7 @@
 //        private long rpm;
 //        private String comment; // limited to 20 characters
 //
-//        public Ride(Date date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException{
+//        public GlobalState(Date date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException{
 //            if (time < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20){
 //                throw new InvalidRideException("This ride is not valid. Make sure time, distance, average speed, and rpm are all POSITIVE, and that the comment LENGTH is at most 20");
 //            }

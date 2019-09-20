@@ -28,7 +28,7 @@ public class RideDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private RideContent.DummyItem mItem;
+    private GlobalState.DummyItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -45,7 +45,7 @@ public class RideDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = RideContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = GlobalState.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);

@@ -67,19 +67,19 @@ public class RideListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, RideContent.ITEMS, mTwoPane));
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(this, GlobalState.ITEMS, mTwoPane));
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final RideListActivity mParentActivity;
-        private final List<RideContent.DummyItem> mValues;
+        private final List<GlobalState.DummyItem> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RideContent.DummyItem item = (RideContent.DummyItem) view.getTag();
+                GlobalState.DummyItem item = (GlobalState.DummyItem) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
                     arguments.putString(RideDetailFragment.ARG_ITEM_ID, item.id);
@@ -99,7 +99,7 @@ public class RideListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(RideListActivity parent,
-                                      List<RideContent.DummyItem> items,
+                                      List<GlobalState.DummyItem> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
