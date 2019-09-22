@@ -30,4 +30,16 @@ public class DummyContent {
         ITEM_MAP.put(item.getId(), item);
     }
 
+    //TODO temporary for filling in content
+    static {
+        // Add 3 sample items.
+        addItem(new Ride(1, "eBookFrenzy",
+                "https://www.ebookfrenzy.com"));
+        addItem(new Ride(2, "Amazon",
+                "https://www.amazon.com"));
+        addItem(new Ride(3, "New York Times",
+                "https://www.nytimes.com"));
+    }
+    //TODO temporary for filling in content
+
 }
