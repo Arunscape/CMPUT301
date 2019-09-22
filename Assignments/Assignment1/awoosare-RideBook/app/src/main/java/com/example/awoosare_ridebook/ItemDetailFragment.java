@@ -60,11 +60,13 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.item_detail, container, false);
+//        View rootView = inflater.inflate(R.layout.item_detail, container, false)
+        View rootView = inflater.inflate(R.layout.ride_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+//            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+
         }
 
         return rootView;
