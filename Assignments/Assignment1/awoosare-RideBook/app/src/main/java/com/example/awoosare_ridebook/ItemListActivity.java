@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.awoosare_ridebook.dummy.DummyContent;
-import com.example.awoosare_ridebook.Ride;
 
 import java.util.List;
 
@@ -120,6 +119,9 @@ public class ItemListActivity extends AppCompatActivity {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mIdView.setText(mValues.get(position).getId());
             holder.mContentView.setText(mValues.get(position).getDate());
+            holder.mTimeView.setText(mValues.get(position).getTime());
+            holder.mDistanceView.setText(mValues.get(position).getDistance());
+
 
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
@@ -133,11 +135,15 @@ public class ItemListActivity extends AppCompatActivity {
         class ViewHolder extends RecyclerView.ViewHolder {
             final TextView mIdView;
             final TextView mContentView;
+            final TextView mTimeView;
+            final TextView mDistanceView;
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.id_text);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                mIdView = (TextView) view.findViewById(R.id.rideListId);
+                mContentView = (TextView) view.findViewById(R.id.rideListDate);
+                mTimeView = (TextView) view.findViewById(R.id.rideListTime);
+                mDistanceView = (TextView) view.findViewById(R.id.rideListDistance);
             }
         }
     }
