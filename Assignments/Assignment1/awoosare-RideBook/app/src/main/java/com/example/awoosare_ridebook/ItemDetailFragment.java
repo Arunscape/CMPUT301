@@ -66,6 +66,12 @@ public class ItemDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
 //            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+            ((TextView) rootView.findViewById(R.id.rideDetailDateContent)).setText(mItem.getDate());
+            ((TextView) rootView.findViewById(R.id.rideDetailTimeContent)).setText(mItem.getTime());
+            ((TextView) rootView.findViewById(R.id.rideDetailDistanceContent)).setText(mItem.getDistance());
+            ((TextView) rootView.findViewById(R.id.rideDetailSpeedContent)).setText(mItem.getAverageSpeed());
+            ((TextView) rootView.findViewById(R.id.rideDetailRPMContent)).setText(mItem.getRPM());
+            ((TextView) rootView.findViewById(R.id.rideDetailCommentContent)).setText(mItem.getComment());
 
         }
 
