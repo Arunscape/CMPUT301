@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Ride {
 
     //TODO this is leftover from DummyItem
-    public  String id = "1";
+//    public  String id = "1";
     public  String content = "default content";
     public  String details = "default details";
     //TODO
@@ -22,6 +22,9 @@ public class Ride {
     private long rpm;
     private String comment; // limited to 20 characters
 
+    private static long nextId = 1;
+    private long id;
+
 
     public Ride(Date date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
         if (time < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
@@ -33,13 +36,17 @@ public class Ride {
         this.average_speed = average_speed;
         this.rpm = rpm;
         this.comment = comment;
+        this.id = nextId;
+        nextId += 1;
     }
 
-    public Ride(String id, String content, String details) {
+    //TODO delet this
+    public Ride(long id, String content, String details) {
         this.id = id;
         this.content = content;
         this.details = details;
     }
+    //TODO delet this
 
     public String getDate() {
         return dateFormat.format((this.date));
@@ -107,6 +114,8 @@ public class Ride {
     public String toString() {
         return content;
     }
+
+    public  String getId(){ return String.valueOf(this.id);}
 
 }
 

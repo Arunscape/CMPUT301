@@ -27,7 +27,7 @@ public class DummyContent {
 
     private static void addItem(Ride item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.getId(), item);
     }
 
 }
