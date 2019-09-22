@@ -1,5 +1,7 @@
 package com.example.awoosare_ridebook.dummy;
 
+import com.example.awoosare_ridebook.Ride;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,32 +18,16 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static final List<Ride> ITEMS = new ArrayList<Ride>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static final Map<String, Ride> ITEM_MAP = new HashMap<String, Ride>();
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(Ride item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    public static class DummyItem {
-        public final String id;
-        public final String content;
-        public final String details;
-
-        public DummyItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
-        }
-
-        @Override
-        public String toString() {
-            return content;
-        }
-    }
 }
