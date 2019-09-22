@@ -3,6 +3,7 @@ package com.example.awoosare_ridebook.dummy;
 import com.example.awoosare_ridebook.Ride;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,12 +34,9 @@ public class DummyContent {
     //TODO temporary for filling in content
     static {
         // Add 3 sample items.
-        addItem(new Ride(1, "eBookFrenzy",
-                "https://www.ebookfrenzy.com"));
-        addItem(new Ride(2, "Amazon",
-                "https://www.amazon.com"));
-        addItem(new Ride(3, "New York Times",
-                "https://www.nytimes.com"));
+        addItem(new Ride(new Date(), 1, 2, 3, 4, "") );
+        addItem(new Ride(new Date(), 5, 6, 7, 8, "ride 2's comment") );
+        addItem(new Ride(new Date(), 88, 75, 4, 6, "ride 3's comment") );
     }
     //TODO temporary for filling in content
 

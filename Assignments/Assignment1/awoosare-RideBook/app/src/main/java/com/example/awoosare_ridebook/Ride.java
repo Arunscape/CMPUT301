@@ -7,12 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Ride {
 
-    //TODO this is leftover from DummyItem
-//    public  String id = "1";
-    public  String content = "default content";
-    public  String details = "default details";
-    //TODO
-
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 
     private Date date;
@@ -39,14 +33,6 @@ public class Ride {
         this.id = nextId;
         nextId += 1;
     }
-
-    //TODO delet this
-    public Ride(long id, String content, String details) {
-        this.id = id;
-        this.content = content;
-        this.details = details;
-    }
-    //TODO delet this
 
     public String getDate() {
         return dateFormat.format((this.date));
@@ -104,15 +90,11 @@ public class Ride {
         this.comment = comment.substring(0, 20);
     }
 
-    //    @Override
-//    public String toString(){
-//        return String.format(
-//                "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
-//                this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment());
-//    }
-    @Override
-    public String toString() {
-        return content;
+        @Override
+    public String toString(){
+        return String.format(
+                "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
+                this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment());
     }
 
     public  String getId(){ return String.valueOf(this.id);}
