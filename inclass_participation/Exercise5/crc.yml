@@ -1,0 +1,97 @@
+ClassName: Piece
+Responsibilities:
+        - knows its colour
+        - knows whether it's alive or dead
+Collaborators: 
+        - Board
+        - Player
+
+ClassName: Pawn
+Responsibilities:
+        - can move like a pawn
+Collaborators:
+        - Player
+        - Board
+
+ClassName: Rook
+Responsibilities:
+        - can move like a rook
+Collaborators:
+        - Player
+        - Board
+
+ClassName: King
+Responsibilities:
+        - can move like a king
+Collaborators:
+        - Player
+        - Board
+
+ClassName: Queen
+Responsibilities:
+        - can move like both a bishop and rook, a.k.a like a queen
+Collaborators: 
+        - Player
+        - Board
+
+ClassName: Bishop
+Responsibilities:
+        - can move diagonally, a.k.a like a bishop
+Collaborators:
+        - Player
+        - Board
+
+ClassName: Knight
+Responsibilities:
+        - can move like a knight
+Collaborators:
+        - Player
+        - Board
+
+ClassName: Board
+Responsibilities:
+        - knows location of pieces
+Collaborators:
+        - Piece
+        - Player
+        - Move
+
+ClassName: Player
+Responsibilities:
+        - knows its pieces
+        - can move its own pieces
+Collaborators:
+        - Board
+        - Piece
+
+ClassName: Game
+Responsibilities:
+        - knows which Player's turn it is
+Collaborators:
+        - Board
+        - Piece
+        - Player
+        - Move
+
+ClassName: Move
+Responsibilities:
+        - Move a piece
+Collaborators:
+        - Board
+        - Player
+
+ClassName: Castling
+Responsibilities:
+        - allows players to do the castling move
+Collaborators:
+        - Board
+        - Knight
+        - Rook
+
+ClassName: EnPassant
+Responsibilities:
+        - allows players to do the en passant move
+Collaborators:
+        - Board
+        - Pawn
+        - Piece
