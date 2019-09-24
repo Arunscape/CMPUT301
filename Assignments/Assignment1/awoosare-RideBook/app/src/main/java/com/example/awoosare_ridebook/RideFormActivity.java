@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,7 +23,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
@@ -42,6 +42,12 @@ public class RideFormActivity extends AppCompatActivity {
     TimePickerDialog timePickerDialog;
 
     Ride ride;
+
+    enum FormAction {
+        CREATE, EDIT
+    }
+
+    FormAction formAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,23 +73,32 @@ public class RideFormActivity extends AppCompatActivity {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        DatePreview.setText(String.format( "%04d-%02d-%02d", year, month, day));
+
+        DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
         TimePreview.setText(String.format("%02d:%02d", hour, minute));
 
-        this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
+        String create_or_edit = getIntent().getStringExtra("type");
+        Log.e("app", create_or_edit);
+        if (create_or_edit.equals("CREATE_RIDE")) {
+            this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
+            this.formAction = formAction.CREATE;
+        } else if (create_or_edit.equals("EDIT_RIDE")) {
+            String id = getIntent().getStringExtra("ride_id");
+            this.ride = DummyContent.ITEM_MAP.get(id);
+            this.formAction = FormAction.EDIT;
+        }
 
 
         SetDateButton.setOnClickListener((View v) -> {
-            DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) ->{
-                    DatePreview.setText(String.format( "%04d-%02d-%02d", yyyy, mm, dd));
-                    Calendar cal = Calendar.getInstance();
-                    cal.set(yyyy, mm, dd);
-                    this.ride.setDate(cal);
+            DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) -> {
+                DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm, dd));
+                Calendar cal = Calendar.getInstance();
+                cal.set(yyyy, mm, dd);
+                this.ride.setDate(cal);
             };
             this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, year, month, day);
             this.datePickerDialog.show();
         });
-//        this.datePickerDialog.updateDate(year, month, day);
 
         SetTimeButton.setOnClickListener((View v) -> {
             TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
@@ -91,37 +106,26 @@ public class RideFormActivity extends AppCompatActivity {
             this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, hour, minute, true);
             this.timePickerDialog.show();
         });
-//        this.timePickerDialog.updateTime(hour, minute);
-
 
         Distance.setOnFocusChangeListener((View v, boolean hasFocus) -> {
-            if (!checkIfEditTextEmpty(Distance, hasFocus)){
+            if (!checkIfEditTextEmpty(Distance, hasFocus)) {
                 this.setDistance();
             }
 
         });
 
         Speed.setOnFocusChangeListener((View v, boolean hasFocus) -> {
-            if (!checkIfEditTextEmpty(Speed, hasFocus)){
+            if (!checkIfEditTextEmpty(Speed, hasFocus)) {
                 this.setSpeed();
             }
         });
 
         RPM.setOnFocusChangeListener((View v, boolean hasFocus) -> {
-            if (!checkIfEditTextEmpty(RPM, hasFocus)){
+            if (!checkIfEditTextEmpty(RPM, hasFocus)) {
                 this.setRPM();
             }
 
         });
-
-//        Comment.setOn((View v, boolean hasFocus) -> {
-//            if (!hasFocus){
-//                String comment = Comment.getText().toString();
-//                if (!comment.equals("")){
-//                    this.ride.setComment(comment);
-//                }
-//            }
-//        });
 
         fab.setOnClickListener((View v) -> {
 
@@ -132,15 +136,15 @@ public class RideFormActivity extends AppCompatActivity {
 
             AtomicBoolean error = new AtomicBoolean(false);
 
-            textBoxes.forEach((EditText b)->{
+            textBoxes.forEach((EditText b) -> {
                 checkIfEditTextEmpty(b, false);
-                if (b.getError() != null && b.getError().equals("")) {
+                if (b.getError() != null) {
                     error.set(true);
                     return;
                 }
             });
 
-            if (error.get()){
+            if (error.get()) {
                 Snackbar s = Snackbar.make(v, R.string.form_empty_field_message, Snackbar.LENGTH_SHORT);
                 s.show();
                 return;
@@ -151,14 +155,14 @@ public class RideFormActivity extends AppCompatActivity {
             this.setRPM();
             this.setComment();
 
-            DummyContent.addItem(this.ride);
+            if (this.formAction.equals(FormAction.CREATE)) {
+                DummyContent.addItem(this.ride);
+            }
 
             Intent intent = new Intent(this, ItemListActivity.class);
             startActivity(intent);
 
         });
-
-
 
 
     }
@@ -171,11 +175,11 @@ public class RideFormActivity extends AppCompatActivity {
         this.ride.setAverageSpeed(Double.parseDouble(Speed.getText().toString()));
     }
 
-    private void setRPM(){
+    private void setRPM() {
         this.ride.setRpm(Integer.parseInt(RPM.getText().toString()));
     }
 
-    private void setComment(){
+    private void setComment() {
         this.ride.setComment(Comment.getText().toString());
     }
 

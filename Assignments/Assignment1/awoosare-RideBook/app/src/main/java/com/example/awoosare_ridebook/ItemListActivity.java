@@ -70,6 +70,7 @@ public class ItemListActivity extends AppCompatActivity {
 
     public void onClickFabNewRide(View v){
         Intent intent = new Intent(this, RideFormActivity.class);
+        intent.putExtra("type", "CREATE_RIDE");
         startActivity(intent);
 
     }
@@ -100,8 +101,8 @@ public class ItemListActivity extends AppCompatActivity {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ItemDetailActivity.class);
                     intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, item.getId());
-
                     context.startActivity(intent);
+
                 }
             }
         };
