@@ -2,13 +2,13 @@ package com.example.awoosare_ridebook;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import android.icu.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import android.icu.util.Calendar;
 
 public class Ride {
 
-    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     private Calendar date;
     private long time; // minutes
@@ -36,7 +36,11 @@ public class Ride {
     }
 
     public String getDate() {
-        return dateFormat.format((this.date));
+        return dateFormat.format((this.date.getTime()));
+    }
+
+    public static String getDate(Calendar date) {
+        return dateFormat.format(date.getTime());
     }
 
     public void setDate(Calendar date) {
@@ -47,10 +51,26 @@ public class Ride {
         return String.format("%02d:%02d", TimeUnit.MINUTES.toHours(this.time), this.time % 60);
     }
 
+    public static String getTime(long time) {
+        return String.format("%02d:%02d", TimeUnit.MINUTES.toHours(time), time % 60);
+    }
+
+    public static String getTime(int hours, int minutes) {
+        return String.format("%02d:%02d", hours, minutes);
+    }
+
+    public static long getTimeToMinutes(int hours, int minutes) {
+        return TimeUnit.HOURS.toMinutes(hours) + minutes;
+    }
+
     public void setTime(long time) {
         if (time > 0) {
             this.time = time;
         }
+    }
+
+    public void setTime(int hours, int minutes) {
+        this.setTime(getTimeToMinutes(hours, minutes));
     }
 
     public String getDistance() {
@@ -59,7 +79,7 @@ public class Ride {
 
     public void setDistance(double distance) {
         if (distance > 0) {
-            this.time = time;
+            this.distance = distance;
         }
     }
 
@@ -88,17 +108,25 @@ public class Ride {
     }
 
     public void setComment(String comment) {
-        this.comment = comment.substring(0, 20);
+        // TODO IDK
+//        if (comment.length() > 20) {
+//            this.comment = comment.substring(0, 20);
+//        } else {
+//            this.comment = comment;
+//        }
+        this.comment = comment;
     }
 
-        @Override
-    public String toString(){
+    @Override
+    public String toString() {
         return String.format(
                 "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
                 this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment());
     }
 
-    public  String getId(){ return String.valueOf(this.id);}
+    public String getId() {
+        return String.valueOf(this.id);
+    }
 
 }
 

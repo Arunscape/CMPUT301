@@ -2,25 +2,28 @@ package com.example.awoosare_ridebook;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.icu.util.TimeZone;
 import android.os.Bundle;
 
+import com.example.awoosare_ridebook.dummy.DummyContent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
+
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
-import java.text.MessageFormat;
-import java.util.Date;
+import java.util.ArrayList;
+
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class RideFormActivity extends AppCompatActivity {
@@ -64,14 +67,15 @@ public class RideFormActivity extends AppCompatActivity {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        DatePreview.setText(String.format(Locale.CANADA, "%04d-%02d-%02d", year, month, day));
+        DatePreview.setText(String.format( "%04d-%02d-%02d", year, month, day));
         TimePreview.setText(String.format("%02d:%02d", hour, minute));
 
-        this.ride = new Ride(null, 0, 0, 0, 0, "");
+        this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
+
 
         SetDateButton.setOnClickListener((View v) -> {
             DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) ->{
-                    DatePreview.setText(String.format(Locale.CANADA, "%04d-%02d-%02d", yyyy, mm, dd));
+                    DatePreview.setText(String.format( "%04d-%02d-%02d", yyyy, mm, dd));
                     Calendar cal = Calendar.getInstance();
                     cal.set(yyyy, mm, dd);
                     this.ride.setDate(cal);
@@ -79,6 +83,7 @@ public class RideFormActivity extends AppCompatActivity {
             this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, year, month, day);
             this.datePickerDialog.show();
         });
+//        this.datePickerDialog.updateDate(year, month, day);
 
         SetTimeButton.setOnClickListener((View v) -> {
             TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
@@ -86,38 +91,92 @@ public class RideFormActivity extends AppCompatActivity {
             this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, hour, minute, true);
             this.timePickerDialog.show();
         });
+//        this.timePickerDialog.updateTime(hour, minute);
 
 
-        Distance.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+        Distance.setOnFocusChangeListener((View v, boolean hasFocus) -> {
             if (!checkIfEditTextEmpty(Distance, hasFocus)){
-                this.ride.setDistance(Double.parseDouble(Distance.getText().toString()));
+                this.setDistance();
             }
 
         });
 
-        Speed.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+        Speed.setOnFocusChangeListener((View v, boolean hasFocus) -> {
             if (!checkIfEditTextEmpty(Speed, hasFocus)){
-                this.ride.setAverageSpeed(Double.parseDouble(Speed.getText().toString()));
+                this.setSpeed();
             }
         });
 
-        RPM.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+        RPM.setOnFocusChangeListener((View v, boolean hasFocus) -> {
             if (!checkIfEditTextEmpty(RPM, hasFocus)){
-                this.ride.setRpm(Integer.parseInt(RPM.getText().toString()));
+                this.setRPM();
             }
 
         });
 
-        Comment.setOnFocusChangeListener((View view, boolean hasFocus) -> {
-            if (!hasFocus){
-                String comment = Comment.getText().toString();
-                if (!comment.equals("")){
-                    this.ride.setComment(comment);
+//        Comment.setOn((View v, boolean hasFocus) -> {
+//            if (!hasFocus){
+//                String comment = Comment.getText().toString();
+//                if (!comment.equals("")){
+//                    this.ride.setComment(comment);
+//                }
+//            }
+//        });
+
+        fab.setOnClickListener((View v) -> {
+
+            ArrayList<EditText> textBoxes = new ArrayList<>();
+            textBoxes.add(Distance);
+            textBoxes.add(Speed);
+            textBoxes.add(RPM);
+
+            AtomicBoolean error = new AtomicBoolean(false);
+
+            textBoxes.forEach((EditText b)->{
+                checkIfEditTextEmpty(b, false);
+                if (b.getError() != null && b.getError().equals("")) {
+                    error.set(true);
+                    return;
                 }
+            });
+
+            if (error.get()){
+                Snackbar s = Snackbar.make(v, R.string.form_empty_field_message, Snackbar.LENGTH_SHORT);
+                s.show();
+                return;
             }
+
+            this.setDistance();
+            this.setSpeed();
+            this.setRPM();
+            this.setComment();
+
+            DummyContent.addItem(this.ride);
+
+            Intent intent = new Intent(this, ItemListActivity.class);
+            startActivity(intent);
+
         });
 
 
+
+
+    }
+
+    private void setDistance() {
+        this.ride.setDistance(Double.parseDouble(Distance.getText().toString()));
+    }
+
+    private void setSpeed() {
+        this.ride.setAverageSpeed(Double.parseDouble(Speed.getText().toString()));
+    }
+
+    private void setRPM(){
+        this.ride.setRpm(Integer.parseInt(RPM.getText().toString()));
+    }
+
+    private void setComment(){
+        this.ride.setComment(Comment.getText().toString());
     }
 
     private boolean checkIfEditTextEmpty(EditText e, boolean hasFocus) {
