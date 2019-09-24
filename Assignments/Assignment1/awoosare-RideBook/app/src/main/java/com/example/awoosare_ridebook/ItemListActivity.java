@@ -140,10 +140,10 @@ public class ItemListActivity extends AppCompatActivity {
 
             ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.rideListId);
-                mContentView = (TextView) view.findViewById(R.id.rideListDate);
-                mTimeView = (TextView) view.findViewById(R.id.rideListTime);
-                mDistanceView = (TextView) view.findViewById(R.id.rideListDistance);
+                mIdView = view.findViewById(R.id.rideListId);
+                mContentView = view.findViewById(R.id.rideListDate);
+                mTimeView = view.findViewById(R.id.rideListTime);
+                mDistanceView = view.findViewById(R.id.rideListDistance);
             }
         }
     }
