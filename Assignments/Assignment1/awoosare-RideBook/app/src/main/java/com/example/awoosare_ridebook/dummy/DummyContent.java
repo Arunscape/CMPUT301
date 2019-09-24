@@ -1,5 +1,7 @@
 package com.example.awoosare_ridebook.dummy;
 
+import android.icu.util.Calendar;
+
 import com.example.awoosare_ridebook.Ride;
 
 import java.util.ArrayList;
@@ -32,12 +34,57 @@ public class DummyContent {
     }
 
     //TODO temporary for filling in content
-    static {
-        // Add 3 sample items.
-        addItem(new Ride(new Date(), 1, 2, 3, 4, "") );
-        addItem(new Ride(new Date(), 5, 6, 7, 8, "ride 2's comment") );
-        addItem(new Ride(new Date(), 88, 75, 4, 6, "ride 3's comment") );
-    }
+//    static {
+//        // Add 3 sample items.
+//        addItem(new Ride(new Calendar() {
+//            @Override
+//            protected int handleGetLimit(int i, int i1) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleComputeMonthStart(int i, int i1, boolean b) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleGetExtendedYear() {
+//                return 0;
+//            }
+//        }, 1, 2, 3, 4, "") );
+//        addItem(new Ride(new Calendar() {
+//            @Override
+//            protected int handleGetLimit(int i, int i1) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleComputeMonthStart(int i, int i1, boolean b) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleGetExtendedYear() {
+//                return 0;
+//            }
+//        }, 5, 6, 7, 8, "ride 2's comment") );
+//        addItem(new Ride(new Calendar() {
+//            @Override
+//            protected int handleGetLimit(int i, int i1) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleComputeMonthStart(int i, int i1, boolean b) {
+//                return 0;
+//            }
+//
+//            @Override
+//            protected int handleGetExtendedYear() {
+//                return 0;
+//            }
+//        }, 88, 75, 4, 6, "ride 3's comment") );
+//    }
     //TODO temporary for filling in content
 
 }

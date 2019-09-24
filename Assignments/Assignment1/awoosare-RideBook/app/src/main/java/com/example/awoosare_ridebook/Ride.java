@@ -2,6 +2,7 @@ package com.example.awoosare_ridebook;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +10,7 @@ public class Ride {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
 
-    private Date date;
+    private Calendar date;
     private long time; // minutes
     private double distance; // kilometres
     private double average_speed; // km/h
@@ -20,7 +21,7 @@ public class Ride {
     private long id;
 
 
-    public Ride(Date date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
+    public Ride(Calendar date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
         if (time < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
             throw new InvalidRideException("This ride is not valid. Make sure time, distance, average speed, and rpm are all POSITIVE, and that the comment LENGTH is at most 20");
         }
@@ -38,7 +39,7 @@ public class Ride {
         return dateFormat.format((this.date));
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

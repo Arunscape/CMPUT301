@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.text.MessageFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -36,6 +37,8 @@ public class RideFormActivity extends AppCompatActivity {
 
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
+
+    Ride ride;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,51 +67,69 @@ public class RideFormActivity extends AppCompatActivity {
         DatePreview.setText(String.format(Locale.CANADA, "%04d-%02d-%02d", year, month, day));
         TimePreview.setText(String.format("%02d:%02d", hour, minute));
 
-
-        DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) ->
-                DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm, dd));
-
-        TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
-                TimePreview.setText(String.format("%02d:%02d", hh, mm));
-
+        this.ride = new Ride(null, 0, 0, 0, 0, "");
 
         SetDateButton.setOnClickListener((View v) -> {
+            DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) ->{
+                    DatePreview.setText(String.format(Locale.CANADA, "%04d-%02d-%02d", yyyy, mm, dd));
+                    Calendar cal = Calendar.getInstance();
+                    cal.set(yyyy, mm, dd);
+                    this.ride.setDate(cal);
+            };
             this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, year, month, day);
             this.datePickerDialog.show();
         });
 
         SetTimeButton.setOnClickListener((View v) -> {
+            TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
+                    TimePreview.setText(String.format("%02d:%02d", hh, mm));
             this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, hour, minute, true);
             this.timePickerDialog.show();
         });
 
 
-        Distance.setOnFocusChangeListener((view, hasFocus) -> {
-            checkIfEditTextEmpty(Distance, hasFocus);
+        Distance.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+            if (!checkIfEditTextEmpty(Distance, hasFocus)){
+                this.ride.setDistance(Double.parseDouble(Distance.getText().toString()));
+            }
+
         });
 
-        Speed.setOnFocusChangeListener((view, hasFocus) -> {
-            checkIfEditTextEmpty(Speed, hasFocus);
+        Speed.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+            if (!checkIfEditTextEmpty(Speed, hasFocus)){
+                this.ride.setAverageSpeed(Double.parseDouble(Speed.getText().toString()));
+            }
         });
 
-        RPM.setOnFocusChangeListener((view, hasFocus) -> {
-            checkIfEditTextEmpty(RPM, hasFocus);
+        RPM.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+            if (!checkIfEditTextEmpty(RPM, hasFocus)){
+                this.ride.setRpm(Integer.parseInt(RPM.getText().toString()));
+            }
+
         });
 
-        Comment.setOnFocusChangeListener((view, hasFocus) -> {
-
+        Comment.setOnFocusChangeListener((View view, boolean hasFocus) -> {
+            if (!hasFocus){
+                String comment = Comment.getText().toString();
+                if (!comment.equals("")){
+                    this.ride.setComment(comment);
+                }
+            }
         });
 
 
     }
 
-    private void checkIfEditTextEmpty(EditText e, boolean hasFocus) {
+    private boolean checkIfEditTextEmpty(EditText e, boolean hasFocus) {
         if (!hasFocus) {
             String s = e.getText().toString();
             if (s.equals("")) {
                 e.setError("This field cannot be empty!");
+                return true;
             }
+            return false;
         }
+        return true;
     }
 
 }
