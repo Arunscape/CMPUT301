@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.sql.Time;
 
@@ -18,8 +20,9 @@ public class RideFormActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
     TextView DatePreview;
-    EditText TimeHours;
-    EditText TimeMinutes;
+    TextView TimePreview;
+//    TimePicker Time;
+    Button SetTimeButton;
     EditText Distance;
     EditText Speed;
     EditText RPM;
@@ -34,44 +37,38 @@ public class RideFormActivity extends AppCompatActivity {
 
         this.fab = findViewById(R.id.fab);
         this.DatePreview = findViewById(R.id.FormDatePreview);
-        this.TimeHours = findViewById(R.id.FormTimeHours);
-        this.TimeMinutes = findViewById(R.id.FormTimeMinutes);
+        this.TimePreview = findViewById(R.id.FormTimePreview);
+//        this.TimeHours = findViewById(R.id.FormTimeHours);
+//        this.TimeMinutes = findViewById(R.id.FormTimeMinutes);
+        this.SetTimeButton = findViewById(R.id.FormTimeButton);
         this.Distance = findViewById(R.id.FormDistance);
         this.Speed = findViewById(R.id.FormSpeed);
         this.RPM = findViewById(R.id.FormRPM);
         this.Comment = findViewById(R.id.FormComment);
 
 
-        TimeHours.setOnFocusChangeListener((view, hasFocus) -> {
-            if (!hasFocus) {
-                String hour = TimeHours.getText().toString();
-                if (hour.equals("")) {
-                    TimeHours.setError("This field cannot be empty!");
-                } else if (!hour.equals("") && Integer.parseInt(hour) > 24) {
-                    TimeHours.setError("Hour must be between 00-24 inclusive");
-                }
-            }
-        });
-
-        TimeMinutes.setOnFocusChangeListener((view, hasFocus) -> {
-            if (!hasFocus) {
-                String minute = TimeMinutes.getText().toString();
-                if (minute.equals("")) {
-                    TimeMinutes.setError("This field cannot be empty!");
-                } else if (!minute.equals("") && Integer.parseInt(minute) > 59) {
-                    TimeMinutes.setError("Minute must be between 00-59 inclusive");
-                }
-            }
-        });
-
         Distance.setOnFocusChangeListener((view, hasFocus) -> {
-            if (!hasFocus){
-                String distance = Distance.getText().toString();
-                if(distance.equals("")){
-                    Distance.setError("This field cannot be empty!");
-                }
-            }
+            checkIfEditTextEmpty(Distance, hasFocus);
         });
+
+        Speed.setOnFocusChangeListener((view, hasFocus) -> {
+            checkIfEditTextEmpty(Speed, hasFocus);
+        });
+
+        RPM.setOnFocusChangeListener((view, hasFocus) -> {
+            checkIfEditTextEmpty(RPM, hasFocus);
+        });
+
+
+    }
+
+    private void checkIfEditTextEmpty (EditText e, boolean hasFocus){
+        if (!hasFocus){
+            String s = e.getText().toString();
+            if( s.equals("")){
+                e.setError("This field cannot be empty!");
+            }
+        }
     }
 
 }
