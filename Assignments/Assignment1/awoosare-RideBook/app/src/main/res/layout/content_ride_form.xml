@@ -50,7 +50,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="hh"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"
@@ -70,7 +70,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="mm"
             android:layout_marginLeft="20dp"
             android:textAlignment="center" />
@@ -95,7 +95,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="distance in kilometres"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"/>
@@ -120,7 +120,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="average speed"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"/>
@@ -145,7 +145,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="rpm"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"/>
