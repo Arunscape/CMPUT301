@@ -26,7 +26,7 @@ public class DummyContent {
      */
     public static final Map<String, Ride> ITEM_MAP = new HashMap<String, Ride>();
 
-    private static void addItem(Ride item) {
+    public static void addItem(Ride item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getId(), item);
     }

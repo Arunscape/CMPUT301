@@ -17,7 +17,7 @@
         android:layout_margin="20dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/FormDatePreview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="YYYY-MM-DD"
@@ -54,6 +54,8 @@
             android:hint="hh"
             android:layout_marginLeft="20dp"
             android:textAlignment="center"
+            android:maxLength="2"
+            android:nextFocusDown="@+id/FormTimeMinutes"
             />
 
         <TextView
@@ -73,7 +75,8 @@
             android:inputType="number"
             android:hint="mm"
             android:layout_marginLeft="20dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:maxLength="2"/>
 
     </LinearLayout>
 
@@ -182,7 +185,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:maxLength="20"/>
 
     </LinearLayout>
 </LinearLayout>
