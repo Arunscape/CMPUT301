@@ -86,7 +86,6 @@ public class RideFormActivity extends AppCompatActivity {
         } else if (create_or_edit.equals("EDIT_RIDE")) {
             this.formAction = FormAction.EDIT;
             String id = getIntent().getStringExtra("ride_id");
-            Log.e("app", id);
             this.ride = DummyContent.ITEM_MAP.get(id);
 
             Distance.setText(this.ride.getDistance(true));
@@ -95,6 +94,7 @@ public class RideFormActivity extends AppCompatActivity {
             Comment.setText(this.ride.getComment());
 
         }
+
         DatePreview.setText(this.ride.getDate());
         TimePreview.setText(this.ride.getTime());
 
@@ -135,7 +135,6 @@ public class RideFormActivity extends AppCompatActivity {
             if (!checkIfEditTextEmpty(Distance, hasFocus)) {
                 this.setDistance();
             }
-
         });
 
         Speed.setOnFocusChangeListener((View v, boolean hasFocus) -> {
@@ -148,7 +147,6 @@ public class RideFormActivity extends AppCompatActivity {
             if (!checkIfEditTextEmpty(RPM, hasFocus)) {
                 this.setRPM();
             }
-
         });
 
         fab.setOnClickListener((View v) -> {
@@ -169,7 +167,11 @@ public class RideFormActivity extends AppCompatActivity {
             });
 
             if (error.get()) {
-                Snackbar s = Snackbar.make(v, R.string.form_empty_field_message, Snackbar.LENGTH_SHORT);
+                Snackbar s = Snackbar.make(
+                        v,
+                        R.string.form_empty_field_message,
+                        Snackbar.LENGTH_SHORT
+                );
                 s.show();
                 return;
             }
@@ -197,8 +199,6 @@ public class RideFormActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ItemListActivity.class);
             startActivity(intent);
         });
-
-
     }
 
     @Override

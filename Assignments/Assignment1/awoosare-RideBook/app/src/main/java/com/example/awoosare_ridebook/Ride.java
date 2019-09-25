@@ -45,12 +45,12 @@ public class Ride {
         return timeFormat.format(date.getTime());
     }
 
-    public int getTimeHourOfDay(){
+    public int getTimeHourOfDay() {
         return this.date.get(Calendar.HOUR_OF_DAY);
     }
 
 
-    public int getTimeMinuteOfHour(){
+    public int getTimeMinuteOfHour() {
         return this.date.get(Calendar.MINUTE);
     }
 
@@ -63,7 +63,7 @@ public class Ride {
         return String.format("%f km", this.distance);
     }
 
-    public String getDistance(boolean raw){
+    public String getDistance(boolean raw) {
         return raw ? Double.toString(this.distance) : getDistance();
     }
 
@@ -77,7 +77,7 @@ public class Ride {
         return String.format("%f km/h", this.average_speed);
     }
 
-    public String getSpeed(boolean raw){
+    public String getSpeed(boolean raw) {
         return raw ? Double.toString(this.average_speed) : getSpeed();
     }
 
@@ -91,7 +91,7 @@ public class Ride {
         return String.format("%d rev/min", this.rpm);
     }
 
-    public String getRPM(boolean raw){
+    public String getRPM(boolean raw) {
         return raw ? Long.toString(this.rpm) : getRPM();
     }
 
@@ -118,7 +118,7 @@ public class Ride {
         return String.valueOf(this.id);
     }
 
-    public static void decrementId(){
+    public static void decrementId() {
         nextId -= 1;
     }
 
