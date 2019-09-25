@@ -56,6 +56,7 @@ public class RideFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ride_form);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.fab = findViewById(R.id.fab);
         this.fabDelete = findViewById(R.id.fabDelete);
@@ -69,22 +70,18 @@ public class RideFormActivity extends AppCompatActivity {
         this.Comment = findViewById(R.id.FormComment);
 
         final Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1; // WHYYYYYYYYYYYYYY
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
-
 
         String create_or_edit = getIntent().getStringExtra("type");
-        Log.e("app", create_or_edit);
+
         if (create_or_edit.equals("CREATE_RIDE")) {
             this.formAction = formAction.CREATE;
-            // TODO FIX THIS
-            this.ride = new Ride(calendar, 0, 0 , 0, 0, 0, "");
-
-            DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
-            TimePreview.setText(String.format("%02d:%02d", hour, minute));
+            this.ride = new Ride(
+                    calendar,
+                    0,
+                    0,
+                    0,
+                    ""
+            );
 
         } else if (create_or_edit.equals("EDIT_RIDE")) {
             this.formAction = FormAction.EDIT;
@@ -92,48 +89,45 @@ public class RideFormActivity extends AppCompatActivity {
             Log.e("app", id);
             this.ride = DummyContent.ITEM_MAP.get(id);
 
-            final Calendar date = this.ride.getDateAsCalendar();
-            year = date.get(Calendar.YEAR);
-            month = date.get(Calendar.DAY_OF_MONTH);
-            day = date.get(Calendar.DAY_OF_MONTH);
-
-            hour = this.ride.getTimeHourOfDay();
-            minute = this.ride.getTimeMinuteOfHour();
-
             Distance.setText(this.ride.getDistance(true));
             Speed.setText(this.ride.getSpeed(true));
             RPM.setText(this.ride.getRPM(true));
             Comment.setText(this.ride.getComment());
 
         }
-        DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
-        TimePreview.setText(String.format("%02d:%02d", hour, minute));
+        DatePreview.setText(this.ride.getDate());
+        TimePreview.setText(this.ride.getTime());
 
-
-        // Variable used in lambda expression should be final or effectively final
-        final int finalYear = year;
-        final int finalMonth = month;
-        final int finalDay = day;
-        final int finalHour = hour;
-        final int finalMinute = minute;
         SetDateButton.setOnClickListener((View v) -> {
+            Calendar cal = Calendar.getInstance();
             DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) -> {
-                DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm + 1, dd));
-                Calendar cal = Calendar.getInstance();
                 cal.set(yyyy, mm, dd);
                 this.ride.setDate(cal);
+                DatePreview.setText(this.ride.getDate());
             };
-            this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, finalYear, finalMonth, finalDay);
+            this.datePickerDialog = new DatePickerDialog(
+                    v.getContext(),
+                    dateListener,
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)
+            );
             this.datePickerDialog.show();
         });
 
 
         SetTimeButton.setOnClickListener((View v) -> {
             TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) -> {
-                TimePreview.setText(String.format("%02d:%02d", hh, mm));
                 this.ride.setTime(hh, mm);
+                TimePreview.setText(this.ride.getTime());
             };
-            this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, finalHour, finalMinute, true);
+            this.timePickerDialog = new TimePickerDialog(
+                    v.getContext(),
+                    timeListener,
+                    this.ride.getTimeHourOfDay(),
+                    this.ride.getTimeMinuteOfHour(),
+                    true
+            );
             this.timePickerDialog.show();
         });
 
@@ -195,9 +189,9 @@ public class RideFormActivity extends AppCompatActivity {
         });
 
         fabDelete.setOnClickListener((View v) -> {
-            if (this.formAction.equals(FormAction.EDIT)){
+            if (this.formAction.equals(FormAction.EDIT)) {
                 DummyContent.removeItem(this.ride);
-            } else if (this.formAction.equals(FormAction.CREATE)){
+            } else if (this.formAction.equals(FormAction.CREATE)) {
                 Ride.decrementId(); // this id can be re-used later
             }
             Intent intent = new Intent(this, ItemListActivity.class);
@@ -205,6 +199,20 @@ public class RideFormActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        if (this.formAction.equals(FormAction.CREATE)) {
+            Ride.decrementId(); // we can reuse the id if back the button is pressed
+        }
+        finish();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        onSupportNavigateUp(); // we can reuse the id if back the button is pressed
     }
 
     private void setDistance() {

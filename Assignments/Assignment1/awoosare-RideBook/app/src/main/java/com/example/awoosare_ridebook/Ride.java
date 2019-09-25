@@ -11,26 +11,23 @@ import android.icu.util.Calendar;
 public class Ride {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final DateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
     private Calendar date;
-    private long time; // minutes
     private double distance; // kilometres
     private double average_speed; // km/h
     private long rpm;
     private String comment; // limited to 20 characters
-    private int timeHour;
-    private int timeMinute;
 
     private static long nextId = 1;
     private long id;
 
 
-    public Ride(Calendar date, int timeHour, int timeMinute, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
-        if (timeHour < 0 || timeMinute < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
+    public Ride(Calendar date, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
+        if (distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
             throw new InvalidRideException("This ride is not valid. Make sure time, distance, average speed, and rpm are all POSITIVE, and that the comment LENGTH is at most 20");
         }
         this.date = date;
-        this.time = time;
         this.distance = distance;
         this.average_speed = average_speed;
         this.rpm = rpm;
@@ -56,22 +53,21 @@ public class Ride {
     }
 
     public String getTime() {
-        return String.format("%02d:%02d", this.timeHour, this.timeMinute);
+        return String.format("%02d:%02d", this.date.get(Calendar.HOUR_OF_DAY), this.date.get(Calendar.MINUTE));
     }
 
     public int getTimeHourOfDay(){
-        return this.timeHour;
+        return this.date.get(Calendar.HOUR_OF_DAY);
     }
 
+
     public int getTimeMinuteOfHour(){
-        return this.timeMinute;
+        return this.date.get(Calendar.MINUTE);
     }
 
     public void setTime(int hour, int minute) {
-        if (hour >= 0 && minute >= 0){
-            this.timeHour = hour;
-            this.timeMinute = minute;
-        }
+        this.date.set(Calendar.HOUR_OF_DAY, hour);
+        this.date.set(Calendar.MINUTE, minute);
     }
 
     public String getDistance() {
@@ -128,13 +124,6 @@ public class Ride {
 //            this.comment = comment;
 //        }
         this.comment = comment;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
-                this.getDate(), this.getTime(), this.getDistance(), this.getSpeed(), this.getRPM(), this.getComment());
     }
 
     public String getId() {
