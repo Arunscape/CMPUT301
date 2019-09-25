@@ -1,11 +1,8 @@
 package com.example.awoosare_ridebook;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.concurrent.TimeUnit;
 
-import android.content.Intent;
 import android.icu.util.Calendar;
 
 public class Ride {
@@ -40,20 +37,11 @@ public class Ride {
         return dateFormat.format((this.date.getTime()));
     }
 
-    public Calendar getDateAsCalendar(){
-        return this.date;
-    }
-
-    public static String getDate(Calendar date) {
-        return dateFormat.format(date.getTime());
-    }
-
     public void setDate(Calendar date) {
         this.date = date;
     }
 
     public String getTime() {
-//        return String.format("%02d:%02d", this.date.get(Calendar.HOUR_OF_DAY), this.date.get(Calendar.MINUTE));
         return timeFormat.format(date.getTime());
     }
 
@@ -119,6 +107,7 @@ public class Ride {
 
     public void setComment(String comment) {
         if (comment.length() > 20) {
+            // already limited by the EditText box but it doesn't hurt to check again
             this.comment = comment.substring(0, 20);
         } else {
             this.comment = comment;
