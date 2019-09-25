@@ -13,7 +13,11 @@
             android:name=".RideFormActivity"
             android:label="@string/title_activity_ride_form"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".ItemListActivity"></activity>
+            android:parentActivityName=".ItemListActivity"
+            android:windowSoftInputMode="adjustResize"
+            >
+
+        </activity>
         <activity
             android:name=".ItemListActivity"
             android:label="@string/app_name"
