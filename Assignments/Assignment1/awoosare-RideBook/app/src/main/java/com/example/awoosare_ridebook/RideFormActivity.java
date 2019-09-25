@@ -29,6 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class RideFormActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
+    FloatingActionButton fabDelete;
     TextView DatePreview;
     Button SetDateButton;
     TextView TimePreview;
@@ -57,6 +58,7 @@ public class RideFormActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         this.fab = findViewById(R.id.fab);
+        this.fabDelete = findViewById(R.id.fabDelete);
         this.DatePreview = findViewById(R.id.FormDatePreview);
         this.SetDateButton = findViewById(R.id.FormDateButton);
         this.TimePreview = findViewById(R.id.FormTimePreview);
@@ -190,6 +192,16 @@ public class RideFormActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ItemListActivity.class);
             startActivity(intent);
 
+        });
+
+        fabDelete.setOnClickListener((View v) -> {
+            if (this.formAction.equals(FormAction.EDIT)){
+                DummyContent.removeItem(this.ride);
+            } else if (this.formAction.equals(FormAction.CREATE)){
+                Ride.decrementId(); // this id can be re-used later
+            }
+            Intent intent = new Intent(this, ItemListActivity.class);
+            startActivity(intent);
         });
 
 

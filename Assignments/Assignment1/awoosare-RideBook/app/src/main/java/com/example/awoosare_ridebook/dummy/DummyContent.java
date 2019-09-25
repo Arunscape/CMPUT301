@@ -17,4 +17,9 @@ public class DummyContent {
         ITEM_MAP.put(item.getId(), item);
     }
 
+    public static  void removeItem(Ride item){
+        ITEMS.remove(item);
+        ITEM_MAP.remove(item);
+    }
+
 }

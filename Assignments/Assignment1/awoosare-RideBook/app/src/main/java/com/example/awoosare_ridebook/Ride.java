@@ -141,6 +141,10 @@ public class Ride {
         return String.valueOf(this.id);
     }
 
+    public static void decrementId(){
+        nextId -= 1;
+    }
+
 }
 
 class InvalidRideException extends IllegalArgumentException {
