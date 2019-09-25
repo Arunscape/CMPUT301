@@ -118,13 +118,11 @@ public class Ride {
     }
 
     public void setComment(String comment) {
-        // TODO IDK
-//        if (comment.length() > 20) {
-//            this.comment = comment.substring(0, 20);
-//        } else {
-//            this.comment = comment;
-//        }
-        this.comment = comment;
+        if (comment.length() > 20) {
+            this.comment = comment.substring(0, 20);
+        } else {
+            this.comment = comment;
+        }
     }
 
     public String getId() {
