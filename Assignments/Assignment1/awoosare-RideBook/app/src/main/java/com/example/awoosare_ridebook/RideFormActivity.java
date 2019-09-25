@@ -96,9 +96,9 @@ public class RideFormActivity extends AppCompatActivity {
             hour = date.get(Calendar.HOUR_OF_DAY);
             minute = date.get(Calendar.MINUTE);
 
-            Distance.setText(this.ride.getDistance());
-            Speed.setText(this.ride.getAverageSpeed());
-            RPM.setText(this.ride.getRPM());
+            Distance.setText(this.ride.getDistance(true));
+            Speed.setText(this.ride.getSpeed(true));
+            RPM.setText(this.ride.getRPM(true));
             Comment.setText(this.ride.getComment());
 
         }
@@ -114,7 +114,7 @@ public class RideFormActivity extends AppCompatActivity {
         final int finalMinute = minute;
         SetDateButton.setOnClickListener((View v) -> {
             DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) -> {
-                DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm, dd));
+                DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm + 1, dd));
                 Calendar cal = Calendar.getInstance();
                 cal.set(yyyy, mm, dd);
                 this.ride.setDate(cal);
@@ -125,8 +125,10 @@ public class RideFormActivity extends AppCompatActivity {
 
 
         SetTimeButton.setOnClickListener((View v) -> {
-            TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
-                    TimePreview.setText(String.format("%02d:%02d", hh, mm));
+            TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) -> {
+                TimePreview.setText(String.format("%02d:%02d", hh, mm));
+                this.ride.setTime(hh, mm);
+            };
             this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, finalHour, finalMinute, true);
             this.timePickerDialog.show();
         });

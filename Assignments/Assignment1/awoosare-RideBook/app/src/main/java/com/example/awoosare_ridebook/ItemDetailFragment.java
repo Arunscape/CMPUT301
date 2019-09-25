@@ -67,7 +67,7 @@ public class ItemDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.rideDetailDateContent)).setText(mItem.getDate());
             ((TextView) rootView.findViewById(R.id.rideDetailTimeContent)).setText(mItem.getTime());
             ((TextView) rootView.findViewById(R.id.rideDetailDistanceContent)).setText(mItem.getDistance());
-            ((TextView) rootView.findViewById(R.id.rideDetailSpeedContent)).setText(mItem.getAverageSpeed());
+            ((TextView) rootView.findViewById(R.id.rideDetailSpeedContent)).setText(mItem.getSpeed());
             ((TextView) rootView.findViewById(R.id.rideDetailRPMContent)).setText(mItem.getRPM());
             ((TextView) rootView.findViewById(R.id.rideDetailCommentContent)).setText(mItem.getComment());
 

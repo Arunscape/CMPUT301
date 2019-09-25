@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
 
+import android.content.Intent;
 import android.icu.util.Calendar;
 
 public class Ride {
@@ -37,6 +38,10 @@ public class Ride {
 
     public String getDate() {
         return dateFormat.format((this.date.getTime()));
+    }
+
+    public Calendar getDateAsCalendar(){
+        return this.date;
     }
 
     public static String getDate(Calendar date) {
@@ -77,14 +82,22 @@ public class Ride {
         return String.format("%f km", this.distance);
     }
 
+    public String getDistance(boolean raw){
+        return raw ? Double.toString(this.distance) : getDistance();
+    }
+
     public void setDistance(double distance) {
         if (distance > 0) {
             this.distance = distance;
         }
     }
 
-    public String getAverageSpeed() {
+    public String getSpeed() {
         return String.format("%f km/h", this.average_speed);
+    }
+
+    public String getSpeed(boolean raw){
+        return raw ? Double.toString(this.average_speed) : getSpeed();
     }
 
     public void setAverageSpeed(double average_speed) {
@@ -95,6 +108,10 @@ public class Ride {
 
     public String getRPM() {
         return String.format("%d rev/min", this.rpm);
+    }
+
+    public String getRPM(boolean raw){
+        return raw ? Long.toString(this.rpm) : getRPM();
     }
 
     public void setRpm(long rpm) {
@@ -121,7 +138,7 @@ public class Ride {
     public String toString() {
         return String.format(
                 "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
-                this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment());
+                this.getDate(), this.getTime(), this.getDistance(), this.getSpeed(), this.getRPM(), this.getComment());
     }
 
     public String getId() {

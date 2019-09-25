@@ -100,7 +100,7 @@
 //            }
 //        }
 //
-//        public String getAverageSpeed(){
+//        public String getSpeed(){
 //            return String.format("%f km/h", this.average_speed);
 //        }
 //        public void setAverageSpeed(double average_speed){
@@ -129,7 +129,7 @@
 //        public String toString(){
 //            return String.format(
 //                    "Date: %s\n Time: %s\n Distance(km): %s\n Avg Speed(km/h): %s\n RPM: %s\n Comment: %s\n",
-//                    this.getDate(), this.getTime(), this.getDistance(), this.getAverageSpeed(), this.getRPM(), this.getComment())
+//                    this.getDate(), this.getTime(), this.getDistance(), this.getSpeed(), this.getRPM(), this.getComment())
 //        }
 //    }
 //}
