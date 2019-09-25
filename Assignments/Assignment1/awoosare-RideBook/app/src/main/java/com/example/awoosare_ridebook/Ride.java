@@ -53,7 +53,8 @@ public class Ride {
     }
 
     public String getTime() {
-        return String.format("%02d:%02d", this.date.get(Calendar.HOUR_OF_DAY), this.date.get(Calendar.MINUTE));
+//        return String.format("%02d:%02d", this.date.get(Calendar.HOUR_OF_DAY), this.date.get(Calendar.MINUTE));
+        return timeFormat.format(date.getTime());
     }
 
     public int getTimeHourOfDay(){
