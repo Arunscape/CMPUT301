@@ -18,13 +18,15 @@ public class Ride {
     private double average_speed; // km/h
     private long rpm;
     private String comment; // limited to 20 characters
+    private int timeHour;
+    private int timeMinute;
 
     private static long nextId = 1;
     private long id;
 
 
-    public Ride(Calendar date, long time, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
-        if (time < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
+    public Ride(Calendar date, int timeHour, int timeMinute, double distance, double average_speed, long rpm, String comment) throws InvalidRideException {
+        if (timeHour < 0 || timeMinute < 0 || distance < 0 || average_speed < 0 || rpm < 0 || comment.length() > 20) {
             throw new InvalidRideException("This ride is not valid. Make sure time, distance, average speed, and rpm are all POSITIVE, and that the comment LENGTH is at most 20");
         }
         this.date = date;
@@ -54,37 +56,22 @@ public class Ride {
     }
 
     public String getTime() {
-        return String.format("%02d:%02d", TimeUnit.MINUTES.toHours(this.time), this.time % 60);
+        return String.format("%02d:%02d", this.timeHour, this.timeMinute);
     }
 
     public int getTimeHourOfDay(){
-        return (int) TimeUnit.MINUTES.toHours(this.time);
+        return this.timeHour;
     }
 
     public int getTimeMinuteOfHour(){
-        return (int) time % 60;
+        return this.timeMinute;
     }
 
-    public static String getTime(long time) {
-        return String.format("%02d:%02d", TimeUnit.MINUTES.toHours(time), time % 60);
-    }
-
-    public static String getTime(int hours, int minutes) {
-        return String.format("%02d:%02d", hours, minutes);
-    }
-
-    public static long getTimeToMinutes(int hours, int minutes) {
-        return TimeUnit.HOURS.toMinutes(hours) + minutes;
-    }
-
-    public void setTime(long time) {
-        if (time > 0) {
-            this.time = time;
+    public void setTime(int hour, int minute) {
+        if (hour >= 0 && minute >= 0){
+            this.timeHour = hour;
+            this.timeMinute = minute;
         }
-    }
-
-    public void setTime(int hours, int minutes) {
-        this.setTime(getTimeToMinutes(hours, minutes));
     }
 
     public String getDistance() {

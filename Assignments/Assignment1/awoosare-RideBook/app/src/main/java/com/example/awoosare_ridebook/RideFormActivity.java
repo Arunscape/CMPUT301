@@ -78,7 +78,8 @@ public class RideFormActivity extends AppCompatActivity {
         Log.e("app", create_or_edit);
         if (create_or_edit.equals("CREATE_RIDE")) {
             this.formAction = formAction.CREATE;
-            this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
+            // TODO FIX THIS
+            this.ride = new Ride(calendar, 0, 0 , 0, 0, 0, "");
 
             DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
             TimePreview.setText(String.format("%02d:%02d", hour, minute));
