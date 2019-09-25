@@ -1,5 +1,6 @@
 package com.example.awoosare_ridebook;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +55,14 @@ public class Ride {
 
     public String getTime() {
         return String.format("%02d:%02d", TimeUnit.MINUTES.toHours(this.time), this.time % 60);
+    }
+
+    public int getTimeHourOfDay(){
+        return (int) TimeUnit.MINUTES.toHours(this.time);
+    }
+
+    public int getTimeMinuteOfHour(){
+        return (int) time % 60;
     }
 
     public static String getTime(long time) {

@@ -93,8 +93,9 @@ public class RideFormActivity extends AppCompatActivity {
             year = date.get(Calendar.YEAR);
             month = date.get(Calendar.DAY_OF_MONTH);
             day = date.get(Calendar.DAY_OF_MONTH);
-            hour = date.get(Calendar.HOUR_OF_DAY);
-            minute = date.get(Calendar.MINUTE);
+
+            hour = this.ride.getTimeHourOfDay();
+            minute = this.ride.getTimeMinuteOfHour();
 
             Distance.setText(this.ride.getDistance(true));
             Speed.setText(this.ride.getSpeed(true));
