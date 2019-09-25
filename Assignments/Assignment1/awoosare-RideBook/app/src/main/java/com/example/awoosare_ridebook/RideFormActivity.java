@@ -74,21 +74,44 @@ public class RideFormActivity extends AppCompatActivity {
         int minute = calendar.get(Calendar.MINUTE);
 
 
-        DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
-        TimePreview.setText(String.format("%02d:%02d", hour, minute));
-
         String create_or_edit = getIntent().getStringExtra("type");
         Log.e("app", create_or_edit);
         if (create_or_edit.equals("CREATE_RIDE")) {
-            this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
             this.formAction = formAction.CREATE;
+            this.ride = new Ride(calendar, Ride.getTimeToMinutes(hour, minute), 0, 0, 0, "");
+
+            DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
+            TimePreview.setText(String.format("%02d:%02d", hour, minute));
+
         } else if (create_or_edit.equals("EDIT_RIDE")) {
-            String id = getIntent().getStringExtra("ride_id");
-            this.ride = DummyContent.ITEM_MAP.get(id);
             this.formAction = FormAction.EDIT;
+            String id = getIntent().getStringExtra("ride_id");
+            Log.e("app", id);
+            this.ride = DummyContent.ITEM_MAP.get(id);
+
+            final Calendar date = this.ride.getDateAsCalendar();
+            year = date.get(Calendar.YEAR);
+            month = date.get(Calendar.DAY_OF_MONTH);
+            day = date.get(Calendar.DAY_OF_MONTH);
+            hour = date.get(Calendar.HOUR_OF_DAY);
+            minute = date.get(Calendar.MINUTE);
+
+            Distance.setText(this.ride.getDistance());
+            Speed.setText(this.ride.getAverageSpeed());
+            RPM.setText(this.ride.getRPM());
+            Comment.setText(this.ride.getComment());
+
         }
+        DatePreview.setText(String.format("%04d-%02d-%02d", year, month, day));
+        TimePreview.setText(String.format("%02d:%02d", hour, minute));
 
 
+        // Variable used in lambda expression should be final or effectively final
+        final int finalYear = year;
+        final int finalMonth = month;
+        final int finalDay = day;
+        final int finalHour = hour;
+        final int finalMinute = minute;
         SetDateButton.setOnClickListener((View v) -> {
             DatePickerDialog.OnDateSetListener dateListener = (view, yyyy, mm, dd) -> {
                 DatePreview.setText(String.format("%04d-%02d-%02d", yyyy, mm, dd));
@@ -96,14 +119,15 @@ public class RideFormActivity extends AppCompatActivity {
                 cal.set(yyyy, mm, dd);
                 this.ride.setDate(cal);
             };
-            this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, year, month, day);
+            this.datePickerDialog = new DatePickerDialog(v.getContext(), dateListener, finalYear, finalMonth, finalDay);
             this.datePickerDialog.show();
         });
+
 
         SetTimeButton.setOnClickListener((View v) -> {
             TimePickerDialog.OnTimeSetListener timeListener = (view, hh, mm) ->
                     TimePreview.setText(String.format("%02d:%02d", hh, mm));
-            this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, hour, minute, true);
+            this.timePickerDialog = new TimePickerDialog(v.getContext(), timeListener, finalHour, finalMinute, true);
             this.timePickerDialog.show();
         });
 
