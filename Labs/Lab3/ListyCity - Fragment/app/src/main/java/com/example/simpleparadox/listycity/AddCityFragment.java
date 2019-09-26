@@ -43,8 +43,8 @@ public class AddCityFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         Bundle bundle = this.getArguments();
-        boolean editCity = bundle.getString("type").equals("EDIT_CITY");
-        int position = bundle.getInt("position", -1);
+        boolean editCity = bundle != null ? bundle.getString("type").equals("EDIT_CITY") : false;
+        int position = bundle != null ? bundle.getInt("position", -1) : -1;
 
         return builder
                 .setView(view)
