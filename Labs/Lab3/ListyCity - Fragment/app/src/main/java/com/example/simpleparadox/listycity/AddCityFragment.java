@@ -19,7 +19,7 @@ public class AddCityFragment extends DialogFragment {
     private OnFragmentInteractionListener listener;
 
     public interface OnFragmentInteractionListener {
-        void onOkPressed(City newCity);
+        void onOkPressed(String city, String province, int position);
     }
 
     @Override
@@ -41,16 +41,19 @@ public class AddCityFragment extends DialogFragment {
         provinceName = view.findViewById(R.id.province_editText);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        Bundle bundle = this.getArguments();
+        boolean editCity = bundle.getString("type").equals("EDIT_CITY");
+        int position = bundle.getInt("position", -1);
+
         return builder
                 .setView(view)
-                .setTitle("Add City")
+                .setTitle(editCity ? "Edit City" : "Add City")
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                String city = cityName.getText().toString();
-                                String province = provinceName.getText().toString();
-                                listener.onOkPressed(new City(city, province));
-                            }}).create();
+                .setPositiveButton("OK", (dialogInterface, i) -> {
+                    String city = cityName.getText().toString();
+                    String province = provinceName.getText().toString();
+                    listener.onOkPressed(city, province, position);
+                }).create();
     }
 }
