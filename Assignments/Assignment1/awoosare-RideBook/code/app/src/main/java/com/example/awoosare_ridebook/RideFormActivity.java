@@ -84,7 +84,7 @@ public class RideFormActivity extends AppCompatActivity {
         } else if (create_or_edit.equals("EDIT_RIDE")) {
             this.formAction = FormAction.EDIT;
             String id = getIntent().getStringExtra("ride_id");
-            this.ride = RideData.ITEM_MAP.get(id);
+            this.ride = RideData.getItemMap().get(id);
 
             Distance.setText(this.ride.getDistance(true));
             Speed.setText(this.ride.getSpeed(true));
