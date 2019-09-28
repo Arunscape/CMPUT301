@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DummyContent {
+public class RideData {
 
     public static final List<Ride> ITEMS = new ArrayList<Ride>();
 

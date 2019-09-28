@@ -7,14 +7,13 @@ import android.icu.util.Calendar;
 import android.icu.util.TimeZone;
 import android.os.Bundle;
 
-import com.example.awoosare_ridebook.dummy.DummyContent;
+import com.example.awoosare_ridebook.dummy.RideData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -86,7 +85,7 @@ public class RideFormActivity extends AppCompatActivity {
         } else if (create_or_edit.equals("EDIT_RIDE")) {
             this.formAction = FormAction.EDIT;
             String id = getIntent().getStringExtra("ride_id");
-            this.ride = DummyContent.ITEM_MAP.get(id);
+            this.ride = RideData.ITEM_MAP.get(id);
 
             Distance.setText(this.ride.getDistance(true));
             Speed.setText(this.ride.getSpeed(true));
@@ -182,7 +181,7 @@ public class RideFormActivity extends AppCompatActivity {
             this.setComment();
 
             if (this.formAction.equals(FormAction.CREATE)) {
-                DummyContent.addItem(this.ride);
+                RideData.addItem(this.ride);
             }
 
             Intent intent = new Intent(this, ItemListActivity.class);
@@ -192,7 +191,7 @@ public class RideFormActivity extends AppCompatActivity {
 
         fabDelete.setOnClickListener((View v) -> {
             if (this.formAction.equals(FormAction.EDIT)) {
-                DummyContent.removeItem(this.ride);
+                RideData.removeItem(this.ride);
             } else if (this.formAction.equals(FormAction.CREATE)) {
                 Ride.decrementId(); // this id can be re-used later
             }
