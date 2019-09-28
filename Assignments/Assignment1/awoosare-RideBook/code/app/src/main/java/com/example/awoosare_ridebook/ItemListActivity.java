@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.awoosare_ridebook.dummy.RideData;
-
 import java.util.List;
 
 /**

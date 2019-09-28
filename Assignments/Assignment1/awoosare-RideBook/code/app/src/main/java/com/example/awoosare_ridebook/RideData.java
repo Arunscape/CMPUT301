@@ -1,4 +1,4 @@
-package com.example.awoosare_ridebook.dummy;
+package com.example.awoosare_ridebook;
 import com.example.awoosare_ridebook.Ride;
 
 import java.util.ArrayList;
