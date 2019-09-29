@@ -10,6 +10,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+// comments for the ItemDetailActivity class
+// most of this was auto generated as part of the master detail flow template
+// an intent was added to go to the Ride Form Activity by clicking on the FAB
+
 /**
  * An activity representing a single Item detail screen. This
  * activity is only used on narrow width devices. On tablet-size devices,
@@ -22,10 +26,10 @@ public class ItemDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        Toolbar toolbar = findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newItem);
+        FloatingActionButton fab = findViewById(R.id.newItem);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(this, RideFormActivity.class);
             intent.putExtra("type", "EDIT_RIDE");

@@ -20,6 +20,20 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+// comments for the RideFormActivity class
+// handles the creation of a new ride, and editing an existing ride
+// it knows whether to add a new ride or edit one based on the intent that is passed to it
+// type: CREATE_RIDE | EDIT RIDE
+// if the type is EDIT_RIDE, then the ride id is passed as another intent with key ride_id
+// the form is then pre-populated with the same data that existed beforehand, and the user
+// can edit the ride's info, or leave the fields as they wish
+// otherwise, if CREATE_RIDE was passed as an intent, the time and date are automatically
+// set to the current date and time. The user is then required to fill out the Distane, Time,
+// or Cadence fields. (The user can still change the date and time or add a comment if desired)
+// the Distance and Speed fields are restricted to decimal inputs, and the
+// Cadence field is restricted to integers. Furthermore, the user will be prompted
+// to fill in these fields if they are left empty. (The comment field may still be left blank)
+// Additionally, the user can delete the ride from this screen.
 
 public class RideFormActivity extends AppCompatActivity {
 

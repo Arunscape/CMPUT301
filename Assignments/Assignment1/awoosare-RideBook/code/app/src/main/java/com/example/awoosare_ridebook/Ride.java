@@ -5,6 +5,15 @@ import android.icu.util.Calendar;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+// comments for the Ride class
+// This class contains all the details needed to display a ride in the list, as well as for viewing
+// the ride's details. It also has some helper functions for displaying the date and the time
+// in the correct format. Data validation is done, even though the UI already only accepts valid
+// input, however, it doesn't hurt to check twice unless it significantly hinders performance
+// (which does not seem to be a problem)
+// Additionally, there is a static variable that assigns each ride a unique id, so that
+// when a ride is clicked in the Item List Activity we know which ride details to pull up
+
 public class Ride {
 
     private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

@@ -11,6 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
+
+// comments for the ItemDetailFragment class
+// most of this was auto generated as part of the master detail flow template
+// this allows the user to see the details of a ride they click on
+
 /**
  * A fragment representing a single Item detail screen.
  * This fragment is either contained in a {@link ItemListActivity}

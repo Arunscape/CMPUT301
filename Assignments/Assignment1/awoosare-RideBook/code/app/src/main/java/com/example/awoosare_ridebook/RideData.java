@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+// comments for the RideData class
+// stores the global state for the application, (which is not persistent)
+// the arrayList is for the recyclerview  in ItemListActivity, while the hashMap
+// is there so that the ride details screen and the Ride Form activity
+// to look up the ride. I probably could have just picked one, but
+// it was convenient and felt more natural to use both, and there does not seem to be
+// a performance hit
+
 public class RideData {
 
     private static final ArrayList<Ride> ITEMS = new ArrayList<Ride>();
@@ -16,7 +24,6 @@ public class RideData {
     public static Map<String, Ride> getItemMap() {
         return ITEM_MAP;
     }
-
 
     public static void addItem(Ride item) {
         ITEMS.add(item);

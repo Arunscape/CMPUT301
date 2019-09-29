@@ -15,6 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+// comments for the ItemListActivity class
+// most of this was auto generated as part of the master detail flow template
+// an intent was added to go to the Ride Form Activity by clicking on the FAB
+// rhe other intent allows the user to go to the ride details screen
+
 /**
  * An activity representing a list of Items. This activity
  * has different presentations for handset and tablet-size devices. On
