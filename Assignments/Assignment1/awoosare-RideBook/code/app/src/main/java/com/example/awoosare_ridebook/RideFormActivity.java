@@ -37,27 +37,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RideFormActivity extends AppCompatActivity {
 
-    FloatingActionButton fab;
-    FloatingActionButton fabDelete;
-    TextView DatePreview;
-    Button SetDateButton;
-    TextView TimePreview;
-    Button SetTimeButton;
-    EditText Distance;
-    EditText Speed;
-    EditText RPM;
-    EditText Comment;
+    private FloatingActionButton fabConfirm;
+    private FloatingActionButton fabDelete;
+    private TextView DatePreview;
+    private Button SetDateButton;
+    private TextView TimePreview;
+    private Button SetTimeButton;
+    private EditText Distance;
+    private EditText Speed;
+    private EditText RPM;
+    private EditText Comment;
 
-    DatePickerDialog datePickerDialog;
-    TimePickerDialog timePickerDialog;
+    private DatePickerDialog datePickerDialog;
+    private TimePickerDialog timePickerDialog;
 
-    Ride ride;
+    private Ride ride;
 
-    enum FormAction {
+    private enum FormAction {
         CREATE, EDIT
     }
 
-    FormAction formAction;
+    private FormAction formAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class RideFormActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        this.fab = findViewById(R.id.fab);
+        this.fabConfirm = findViewById(R.id.fab);
         this.fabDelete = findViewById(R.id.fabDelete);
         this.DatePreview = findViewById(R.id.FormDatePreview);
         this.SetDateButton = findViewById(R.id.FormDateButton);
@@ -158,7 +158,7 @@ public class RideFormActivity extends AppCompatActivity {
             }
         });
 
-        fab.setOnClickListener((View v) -> {
+        fabConfirm.setOnClickListener((View v) -> {
 
             ArrayList<EditText> textBoxes = new ArrayList<>();
             textBoxes.add(Distance);
@@ -229,7 +229,7 @@ public class RideFormActivity extends AppCompatActivity {
     }
 
     private void setSpeed() {
-        this.ride.setAverageSpeed(Double.parseDouble(Speed.getText().toString()));
+        this.ride.setSpeed(Double.parseDouble(Speed.getText().toString()));
     }
 
     private void setRPM() {

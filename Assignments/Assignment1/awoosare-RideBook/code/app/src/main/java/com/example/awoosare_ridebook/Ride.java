@@ -58,7 +58,6 @@ public class Ride {
         return this.date.get(Calendar.HOUR_OF_DAY);
     }
 
-
     public int getTimeMinuteOfHour() {
         return this.date.get(Calendar.MINUTE);
     }
@@ -90,7 +89,7 @@ public class Ride {
         return raw ? Double.toString(this.average_speed) : getSpeed();
     }
 
-    public void setAverageSpeed(double average_speed) {
+    public void setSpeed(double average_speed) {
         if (average_speed > 0) {
             this.average_speed = average_speed;
         }

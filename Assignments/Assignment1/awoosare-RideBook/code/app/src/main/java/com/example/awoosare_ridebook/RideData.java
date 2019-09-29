@@ -2,7 +2,6 @@ package com.example.awoosare_ridebook;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 // comments for the RideData class
 // stores the global state for the application, (which is not persistent)
@@ -15,13 +14,13 @@ import java.util.Map;
 public class RideData {
 
     private static final ArrayList<Ride> ITEMS = new ArrayList<Ride>();
-    private static final Map<String, Ride> ITEM_MAP = new HashMap<String, Ride>();
+    private static final HashMap<String, Ride> ITEM_MAP = new HashMap<String, Ride>();
 
     public static ArrayList<Ride> getITEMS() {
         return ITEMS;
     }
 
-    public static Map<String, Ride> getItemMap() {
+    public static HashMap<String, Ride> getItemMap() {
         return ITEM_MAP;
     }
 
