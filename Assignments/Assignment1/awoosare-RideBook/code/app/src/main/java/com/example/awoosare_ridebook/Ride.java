@@ -1,9 +1,9 @@
 package com.example.awoosare_ridebook;
 
+import android.icu.util.Calendar;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
-import android.icu.util.Calendar;
 
 public class Ride {
 

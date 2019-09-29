@@ -2,19 +2,13 @@ package com.example.awoosare_ridebook;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
-import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.ActionBar;
-
-import android.view.MenuItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * An activity representing a single Item detail screen. This
@@ -23,9 +17,6 @@ import android.view.MenuItem;
  * in a {@link ItemListActivity}.
  */
 public class ItemDetailActivity extends AppCompatActivity {
-
-    private Ride ride;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +30,6 @@ public class ItemDetailActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RideFormActivity.class);
             intent.putExtra("type", "EDIT_RIDE");
             intent.putExtra("ride_id", getIntent().getStringExtra(ItemDetailFragment.ARG_ITEM_ID));
-//            Log.e("app", ItemDetailFragment.ARG_ITEM_ID);
             startActivity(intent);
         });
 

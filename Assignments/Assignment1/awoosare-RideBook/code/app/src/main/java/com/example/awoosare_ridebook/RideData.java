@@ -1,9 +1,7 @@
 package com.example.awoosare_ridebook;
-import com.example.awoosare_ridebook.Ride;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RideData {
@@ -25,7 +23,7 @@ public class RideData {
         ITEM_MAP.put(item.getId(), item);
     }
 
-    public static void removeItem(Ride item){
+    public static void removeItem(Ride item) {
         ITEMS.remove(item);
         ITEM_MAP.remove(item);
     }
