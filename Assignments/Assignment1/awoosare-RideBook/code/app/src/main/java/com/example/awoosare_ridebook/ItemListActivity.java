@@ -59,7 +59,7 @@ public class ItemListActivity extends AppCompatActivity {
 
         TextView TotalDistance = findViewById(R.id.totalDistance);
         double distance = RideData.getITEMS().stream().mapToDouble(r-> Double.parseDouble(r.getDistance(true))).sum();
-        TotalDistance.setText(String.format("%f km/h", distance));
+        TotalDistance.setText(String.format("%f km", distance));
     }
 
     public void onClickFabNewRide(View v) {
