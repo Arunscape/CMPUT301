@@ -2,5 +2,5 @@
     <string name="app_name">awoosare-RideBook</string>
     <string name="title_item_detail">Item Detail</string>
     <string name="title_activity_ride_form">RideFormActivity</string>
-    <string name="form_empty_field_message">Please fill out all of the neccessary fields!</string>
+    <string name="form_empty_field_message">Please fill out all of the necessary fields!</string>
 </resources>

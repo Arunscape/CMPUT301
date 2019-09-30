@@ -52,7 +52,7 @@ public class ItemDetailFragment extends Fragment {
             mItem = RideData.getItemMap().get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            CollapsingToolbarLayout appBarLayout = activity.findViewById(R.id.toolbar_layout);
 
             if (appBarLayout != null) {
                 appBarLayout.setTitle(String.format("Ride %s on %s", mItem.getId(), mItem.getDate()));
