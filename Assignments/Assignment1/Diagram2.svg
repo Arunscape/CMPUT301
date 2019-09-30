@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
-<svg width="116cm" height="127cm" viewBox="466 -768 2312 2524" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="135cm" height="128cm" viewBox="466 -768 2686 2542" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g>
     <rect style="fill: #ffffff" x="860.214" y="210.126" width="476.1" height="28"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="860.214" y="210.126" width="476.1" height="28"/>
@@ -214,19 +214,19 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1129.39" y="1056.95">+removeItem(item:Ride): void &lt;&lt;static&gt;&gt;</text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="919.564,162.519 1333.66,162.519 1345.66,174.519 1345.66,196.519 919.564,196.519 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="919.564,162.519 1333.66,162.519 1345.66,174.519 1345.66,196.519 919.564,196.519 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1333.66,162.519 1333.66,174.519 1345.66,174.519 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="926.564" y="183.237">
-      <tspan x="926.564" y="183.237">handles the creation, editing, and deletion of a ride</tspan>
+    <polygon style="fill: #ffffff" points="922.564,142.519 1336.66,142.519 1348.66,154.519 1348.66,176.519 922.564,176.519 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="922.564,142.519 1336.66,142.519 1348.66,154.519 1348.66,176.519 922.564,176.519 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1336.66,142.519 1336.66,154.519 1348.66,154.519 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="929.564" y="163.237">
+      <tspan x="929.564" y="163.237">handles the creation, editing, and deletion of a ride</tspan>
     </text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="799.898,1077.25 929.098,1077.25 941.098,1089.25 941.098,1111.25 799.898,1111.25 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="799.898,1077.25 929.098,1077.25 941.098,1089.25 941.098,1111.25 799.898,1111.25 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="929.098,1077.25 929.098,1089.25 941.098,1089.25 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="806.898" y="1097.97">
-      <tspan x="806.898" y="1097.97">provided by java</tspan>
+    <polygon style="fill: #ffffff" points="796.898,1106.25 926.098,1106.25 938.098,1118.25 938.098,1140.25 796.898,1140.25 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="796.898,1106.25 926.098,1106.25 938.098,1118.25 938.098,1140.25 796.898,1140.25 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="926.098,1106.25 926.098,1118.25 938.098,1118.25 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="803.898" y="1126.97">
+      <tspan x="803.898" y="1126.97">provided by java</tspan>
     </text>
   </g>
   <g>
@@ -258,16 +258,16 @@
     <polygon style="fill: #ffffff" points="1446.61,-311.628 1451.41,-297.628 1446.61,-283.628 1441.81,-297.628 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1446.61,-311.628 1451.41,-297.628 1446.61,-283.628 1441.81,-297.628 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1271.87" y="-246.985">hosts (tablet mode)</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1457.61" y="-303.909"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1101.12" y="-79.3872"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1457.61" y="-303.909">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1101.12" y="-79.3872">1</text>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="735.436,-331.749 735.436,-207.017 1097.12,-207.017 1097.12,-71.114 "/>
     <polygon style="fill: #ffffff" points="735.436,-356.921 740.236,-342.921 735.436,-328.921 730.636,-342.921 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="735.436,-356.921 740.236,-342.921 735.436,-328.921 730.636,-342.921 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="916.277" y="-212.099">hosts (narrow width mode)</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="746.436" y="-349.202"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1101.12" y="-79.3953"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="746.436" y="-349.202">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1101.12" y="-79.3953">1</text>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="2411.01,-350.607 2411.01,-258.558 2442.38,-258.558 2442.38,-155.336 "/>
@@ -336,54 +336,88 @@
     <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1746.08" y="489.48">gets rides from</text>
     <polygon style="fill: #000000" points="1863.58,489.48 1863.58,481.48 1871.58,485.48 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1503.29" y="996.147"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1340.14" y="-17.1878"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1340.14" y="-17.1879"/>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1312.34,1093.41 1312.34,1191.93 1483.46,1191.93 1483.46,1301.63 "/>
     <polygon style="fill: #ffffff" points="1312.34,1068.24 1317.14,1082.24 1312.34,1096.24 1307.54,1082.24 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1312.34,1068.24 1317.14,1082.24 1312.34,1096.24 1307.54,1082.24 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1397.9" y="1186.85">stores</text>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1323.34" y="1075.95"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1487.46" y="1293.35"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1323.34" y="1075.95">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1487.46" y="1293.35">0..*</text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="858.066,-12.1068 634.992,-12.1068 634.992,1528.63 1261.85,1528.63 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="636.992" y="753.183">displays</text>
-    <polygon style="fill: #000000" points="700.592,753.183 700.592,745.183 708.592,749.183 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="854.066" y="-17.1878"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1257.85" y="1523.55"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="858.066,-12.1068 634.992,-12.1068 634.992,1754.63 1262.86,1754.63 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="636.992" y="866.183">displays</text>
+    <polygon style="fill: #000000" points="700.592,866.183 700.592,858.183 708.592,862.183 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="854.066" y="-17.1878">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1258.86" y="1749.55">1</text>
   </g>
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1688.61,-312.622 2050.6,-312.622 2050.6,1528.63 1705.03,1528.63 "/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2052.6" y="602.925">displays</text>
     <polygon style="fill: #000000" points="2116.2,602.925 2116.2,594.925 2124.2,598.925 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1692.61" y="-317.703"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1709.03" y="1523.55"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1692.61" y="-317.703">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1709.03" y="1523.55">0..*</text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="1503.67,1227.23 1910.07,1227.23 1922.07,1239.23 1922.07,1277.23 1503.67,1277.23 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1503.67,1227.23 1910.07,1227.23 1922.07,1239.23 1922.07,1277.23 1503.67,1277.23 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1910.07,1227.23 1910.07,1239.23 1922.07,1239.23 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1510.67" y="1247.95">
-      <tspan x="1510.67" y="1247.95">stores each ride's details and has helper function s</tspan>
-      <tspan x="1510.67" y="1263.95">for displaying details in the correct format</tspan>
+    <polygon style="fill: #ffffff" points="1538.67,1227.23 1945.07,1227.23 1957.07,1239.23 1957.07,1277.23 1538.67,1277.23 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1538.67,1227.23 1945.07,1227.23 1957.07,1239.23 1957.07,1277.23 1538.67,1277.23 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1945.07,1227.23 1945.07,1239.23 1957.07,1239.23 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1545.67" y="1247.95">
+      <tspan x="1545.67" y="1247.95">stores each ride's details and has helper function s</tspan>
+      <tspan x="1545.67" y="1263.95">for displaying details in the correct format</tspan>
     </text>
   </g>
   <g>
-    <polygon style="fill: #ffffff" points="1360.83,846.81 1628.63,846.81 1640.63,858.81 1640.63,912.81 1360.83,912.81 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1360.83,846.81 1628.63,846.81 1640.63,858.81 1640.63,912.81 1360.83,912.81 "/>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1628.63,846.81 1628.63,858.81 1640.63,858.81 "/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1367.83" y="867.528">
-      <tspan x="1367.83" y="867.528">stores all of the rides in the app</tspan>
-      <tspan x="1367.83" y="883.528">is essentially a non persistent</tspan>
-      <tspan x="1367.83" y="899.528">global state</tspan>
+    <polygon style="fill: #ffffff" points="1376.83,836.81 1644.63,836.81 1656.63,848.81 1656.63,902.81 1376.83,902.81 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1376.83,836.81 1644.63,836.81 1656.63,848.81 1656.63,902.81 1376.83,902.81 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1644.63,836.81 1644.63,848.81 1656.63,848.81 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1383.83" y="857.528">
+      <tspan x="1383.83" y="857.528">stores all of the rides in the app</tspan>
+      <tspan x="1383.83" y="873.528">is essentially a non persistent</tspan>
+      <tspan x="1383.83" y="889.528">global state</tspan>
     </text>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="859.55,486.24 737.195,528.328 737.195,1456.94 1261.85,1507.35 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="739.195" y="987.554">create/edit/delete</text>
-    <polygon style="fill: #000000" points="879.795,987.554 879.795,979.554 887.795,983.554 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="855.55" y="481.159"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1257.85" y="1502.26"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="859.55,440.018 737.196,458.414 737.196,1528.63 1261.85,1528.63 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="739.196" y="988.443">create/edit/delete</text>
+    <polygon style="fill: #000000" points="879.796,988.443 879.796,980.443 887.796,984.443 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="855.55" y="434.937">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="1257.85" y="1523.55">1</text>
   </g>
+  <g>
+    <polygon style="fill: #ffffff" points="2756.04,-518 3139.34,-518 3151.34,-506 3151.34,-452 2756.04,-452 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="2756.04,-518 3139.34,-518 3151.34,-506 3151.34,-452 2756.04,-452 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="3139.34,-518 3139.34,-506 3151.34,-506 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2763.04" y="-497.282">
+      <tspan x="2763.04" y="-497.282">generated by the master detail flow template.</tspan>
+      <tspan x="2763.04" y="-481.282">Some modifications were made so it can "adapt" the</tspan>
+      <tspan x="2763.04" y="-465.282">Ride items to the RecyclerView</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="1496.69,-488.75 1826.09,-488.75 1838.09,-476.75 1838.09,-438.75 1496.69,-438.75 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1496.69,-488.75 1826.09,-488.75 1838.09,-476.75 1838.09,-438.75 1496.69,-438.75 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1826.09,-488.75 1826.09,-476.75 1838.09,-476.75 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1503.69" y="-468.032">
+      <tspan x="1503.69" y="-468.032">this is the first screen the user sees when</tspan>
+      <tspan x="1503.69" y="-452.032">the app is opened. Shows a list of rides.</tspan>
+    </text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1613.8" y1="-437.746" x2="1539.35" y2="-401.62"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="2755.05" y1="-475.404" x2="2705.75" y2="-473.022"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1128.04" y1="209.13" x2="1132.87" y2="177.509"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1463.94" y1="903.755" x2="1416.54" y2="934.228"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1723" y1="1278.23" x2="1700.48" y2="1301.76"/>
+  <g>
+    <polygon style="fill: #ffffff" points="1365.69,-113.75 1579.59,-113.75 1591.59,-101.75 1591.59,-79.75 1365.69,-79.75 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1365.69,-113.75 1579.59,-113.75 1591.59,-101.75 1591.59,-79.75 1365.69,-79.75 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1579.59,-113.75 1579.59,-101.75 1591.59,-101.75 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1372.69" y="-93.0316">
+      <tspan x="1372.69" y="-93.0316">shows the details of a ride</tspan>
+    </text>
+  </g>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="1397.79" y1="-78.8129" x2="1336.15" y2="-65.138"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="933.593" y1="1070.44" x2="890.034" y2="1105.25"/>
 </svg>
