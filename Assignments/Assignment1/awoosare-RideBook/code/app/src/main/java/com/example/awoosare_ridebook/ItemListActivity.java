@@ -41,7 +41,7 @@ public class ItemListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
@@ -56,6 +56,10 @@ public class ItemListActivity extends AppCompatActivity {
         View recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
+
+        TextView TotalDistance = findViewById(R.id.totalDistance);
+        double distance = RideData.getITEMS().stream().mapToDouble(r-> Double.parseDouble(r.getDistance(true))).sum();
+        TotalDistance.setText(String.format("%f km", distance));
     }
 
     public void onClickFabNewRide(View v) {
@@ -97,6 +101,7 @@ public class ItemListActivity extends AppCompatActivity {
                     context.startActivity(intent);
 
                 }
+
             }
         };
 

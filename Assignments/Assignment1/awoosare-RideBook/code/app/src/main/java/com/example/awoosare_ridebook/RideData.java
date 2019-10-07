@@ -31,7 +31,7 @@ public class RideData {
 
     public static void removeItem(Ride item) {
         ITEMS.remove(item);
-        ITEM_MAP.remove(item);
+        ITEM_MAP.remove(item.getId());
     }
 
 }

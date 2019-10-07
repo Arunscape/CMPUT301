@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 // the form is then pre-populated with the same data that existed beforehand, and the user
 // can edit the ride's info, or leave the fields as they wish
 // otherwise, if CREATE_RIDE was passed as an intent, the time and date are automatically
-// set to the current date and time. The user is then required to fill out the Distane, Time,
+// set to the current date and time. The user is then required to fill out the Distance, Time,
 // or Cadence fields. (The user can still change the date and time or add a comment if desired)
 // the Distance and Speed fields are restricted to decimal inputs, and the
 // Cadence field is restricted to integers. Furthermore, the user will be prompted
@@ -83,7 +83,7 @@ public class RideFormActivity extends AppCompatActivity {
         String create_or_edit = getIntent().getStringExtra("type");
 
         if (create_or_edit.equals("CREATE_RIDE")) {
-            this.formAction = formAction.CREATE;
+            this.formAction = FormAction.CREATE;
             this.ride = new Ride(
                     calendar,
                     0,
