@@ -13,6 +13,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -125,7 +128,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        cityList.setOnItemLongClickListener((arg0, view, index, arg3) -> {
 
+            this.db.collection("Cities")
+                    .document(cityDataList.get(index).getCityName())
+                    .delete();
+            cityDataList.remove(index);
+            cityAdapter.notifyDataSetChanged();
+
+            return true;
+        });
     }
 
 
