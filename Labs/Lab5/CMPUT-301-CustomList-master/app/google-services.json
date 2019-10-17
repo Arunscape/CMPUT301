@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "31352879395",
+    "firebase_url": "https://cmput301-lab5-intro-firestore.firebaseio.com",
+    "project_id": "cmput301-lab5-intro-firestore",
+    "storage_bucket": "cmput301-lab5-intro-firestore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31352879395:android:680d0d6621a61f42397496",
+        "android_client_info": {
+          "package_name": "com.example.simpleparadox.listycity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31352879395-jiba0vdta875tfqcaubgnra2do079b54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaGbiw69Qp8T1b3S--TCYNB_aEGwZOYW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31352879395-jiba0vdta875tfqcaubgnra2do079b54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
