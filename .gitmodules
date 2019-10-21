@@ -1,0 +1,3 @@
+[submodule "project/moo-d"]
+	path = project/moo-d
+	url = git@github.com:CMPUT301F19T04/moo-d.git

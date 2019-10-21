@@ -1,0 +1,15 @@
+valid inputs equivalence classes
+one argument of type Point (1)
+
+invalid inputs equivalence classes
+more than one argument (2)
+argument not of type Point. (3)
+
+assumptions: the Point class's constructor takes in integers x, y to create a new point.
+
+Tests:
+encloses( new Point(1, 2) ) covers (1)     // this is a valid test case, should return either true or false
+encloses(null) covers (2)                  // should show the user an error
+encloses(new Point(3, 4), null) covers (3) // should show the user an error
+
+
