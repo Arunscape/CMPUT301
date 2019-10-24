@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ListyCity</string>
+    <string name="title_activity_show">showActivity</string>
+</resources>

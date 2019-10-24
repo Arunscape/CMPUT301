@@ -1,0 +1,31 @@
+For the refactoring UML part, there's no UML diagram.
+
+
+
+For the human error part, there should be some UI's drawn. E.g. for gulf of execution a dialog box with too many buttons.
+
+ 
+Show parent | Reply
+Picture of Kalvin Eng
+Re: Practice Questions
+by Kalvin Eng - Wednesday, 9 December 2015, 11:14 AM
+ 
+1st page a: No, because if either the array or list is destroyed then the item will also be destroyed even though the item might exist in the other class. Aggregation would be more appropriate.
+
+
+
+1st page b: You would use abstract classes when you anticipate creating multiple instances of a class. If you anticipate using multiple functionalities across different classes, you would use interfaces.
+
+
+
+1st page c: Example of extend is "registration" extending "login". Example of include is "Get current score" includes "login".
+
+
+
+For the "Design Patterns" part I am not sure, but here are my best guesses.
+
+Design patterns a: By giving a reference to the subjects being updated in the update method.
+
+
+
+Design patterns b: Have a method that allows the removal of observers and remove all observers before deleting the subject.
